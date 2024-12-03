@@ -1,6 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-
 let resList = [
   {
     type: 'restaurant',
@@ -4390,64 +4387,4 @@ let resList = [
   },
 ];
 
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://img.freepik.com/premium-vector/beautiful-unique-food-restaurant-company-logo-design_981150-2156.jpg"
-          alt="Zwigato Logo"
-        />
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const RestaurantCard = (props) => {
-  const { resData } = props;
-  const { name, cuisine, image, rating, cft } = resData?.info;
-  return (
-    <div className="res-card" style={{ backgroundColor: '#f0f0f0' }}>
-      <img className="res-logo" alt="restaurant image" src={image.url} />
-      <h3>{name}</h3>
-      <h4>{cuisine.map((cuisineObj) => cuisineObj.name).join(' , ')}</h4>
-      <h4>{rating.aggregate_rating + ' '} stars</h4>
-      <h4>{cft.text}</h4>
-      <h4>{resData.order.deliveryTime}</h4>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="res-container">
-        {resList.map((resObj) => (
-          <RestaurantCard key={resObj.info.resId} resData={resObj} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<AppLayout />);
+export default resList;
