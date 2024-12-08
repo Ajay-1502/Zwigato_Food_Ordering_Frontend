@@ -1,9 +1,22 @@
-import resList from '../utils/mockData.js';
 import RestaurantCard from './RestaurantCard.js';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      'https://raw.githubusercontent.com/Ajay-1502/Mock-Apis/refs/heads/main/restaurantsData.json'
+    );
+
+    const json = await data.json();
+    const resInfo = json?.sections?.SECTION_SEARCH_RESULT;
+    setListOfRestaurants(resInfo);
+  };
 
   return (
     <div className="body">
@@ -17,12 +30,12 @@ const Body = () => {
             setListOfRestaurants(filteredList);
           }}
         >
-          Top Rated Restaurant
+          4 Star+ Rated Restaurant
         </button>
       </div>
       <div className="res-container">
-        {listOfRestaurants.map((resObj) => (
-          <RestaurantCard key={resObj.info.resId} resData={resObj} />
+        {listOfRestaurants.map((restaurant) => (
+          <RestaurantCard key={restaurant.info.resId} resData={restaurant} />
         ))}
       </div>
     </div>
