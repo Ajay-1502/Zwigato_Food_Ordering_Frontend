@@ -39,6 +39,7 @@ const Body = () => {
             }}
           ></input>
           <button
+            className="search-btn"
             onClick={() => {
               const filteredRestaurants = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())

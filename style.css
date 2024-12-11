@@ -52,6 +52,11 @@
 
 .toprated-res-btn {
   margin: 10px;
+  cursor: pointer;
+}
+
+.search-btn {
+  cursor: pointer;
 }
 
 .shimmer-card {
@@ -74,4 +79,8 @@
 
 .search-box {
   margin: 5px;
+}
+
+.login-btn {
+  cursor: pointer;
 }
