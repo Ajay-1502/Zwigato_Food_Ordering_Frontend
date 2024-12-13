@@ -4,7 +4,7 @@ import Shimmer from './ShimmerUI.js';
 import { Link } from 'react-router-dom';
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]); //
   const [filteredRes, setFilteredRes] = useState([]);
   const [searchText, setSearchText] = useState('');
 
