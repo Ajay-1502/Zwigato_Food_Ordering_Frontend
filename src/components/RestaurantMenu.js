@@ -1,26 +1,12 @@
-import { useEffect, useState } from 'react';
+import useRestaurantMenu from '../utils/useRestaurantMenu';
 import Shimmer from './ShimmerUI';
 import { useParams } from 'react-router-dom';
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
-
   const params = useParams();
   const { resId } = params;
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(
-      'https://raw.githubusercontent.com/Ajay-1502/Mock-Apis/refs/heads/main/resMenu' +
-        resId +
-        '.json'
-    );
-    const json = await data.json();
-    setResInfo(json?.data);
-  };
+  const resInfo = useRestaurantMenu(resId);
 
   if (resInfo === null) return <Shimmer />;
 
