@@ -1,10 +1,11 @@
 import RestaurantCard from './RestaurantCard.js';
-import { useState, useEffect } from 'react';
+//import { useState, useEffect } from 'react';
 import Shimmer from './ShimmerUI.js';
 import { Link } from 'react-router-dom';
+import useRestaurantData from '../utils/useRestaurantData.js';
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState([]); //
+  /* const [listOfRestaurants, setListOfRestaurants] = useState([]); //
   const [filteredRes, setFilteredRes] = useState([]);
   const [searchText, setSearchText] = useState('');
 
@@ -21,7 +22,16 @@ const Body = () => {
     const resInfo = json?.sections?.SECTION_SEARCH_RESULT;
     setListOfRestaurants(resInfo);
     setFilteredRes(resInfo);
-  };
+  };*/
+
+  const {
+    listOfRestaurants,
+    setListOfRestaurants,
+    filteredRes,
+    setFilteredRes,
+    searchText,
+    setSearchText,
+  } = useRestaurantData();
 
   if (listOfRestaurants.length === 0) {
     return <Shimmer />;
