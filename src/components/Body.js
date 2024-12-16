@@ -39,18 +39,18 @@ const Body = () => {
 
   return (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex">
+        <div className="search mx-8 mt-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="search-box border border-solid border-black mx-12"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           ></input>
           <button
-            className="search-btn"
+            className="search-btn px-2 py-0.5 bg-blue-200 m-4 rounded-md mx-[-35px] "
             onClick={() => {
               const filteredRestaurants = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -61,19 +61,22 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="toprated-res-btn"
-          onClick={() => {
-            const filteredList = listOfRestaurants.filter(
-              (res) => res.info.rating.aggregate_rating > 4
-            );
-            setListOfRestaurants(filteredList);
-          }}
-        >
-          4 Star+ Rated Restaurant
-        </button>
+        <div className="px-1 py-0.5 my-12 mx-12 font-bold ">Filters :</div>
+        <div>
+          <button
+            className="px-1 py-0.5 my-12 mx-[-30px] bg-gray-200 items-center rounded-md"
+            onClick={() => {
+              const filteredList = listOfRestaurants.filter(
+                (res) => res.info.rating.aggregate_rating > 4
+              );
+              setListOfRestaurants(filteredList);
+            }}
+          >
+            Top Rated Restaurant
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap mx-2 px-12">
         {filteredRes.map((restaurant) => (
           <Link
             to={'/restaurants/' + restaurant.info.resId}
