@@ -1,13 +1,14 @@
-import RestaurantCard from './RestaurantCard.js';
-//import { useState, useEffect } from 'react';
+import RestaurantCard, { withPromotedLabel } from './RestaurantCard.js';
 import Shimmer from './ShimmerUI.js';
 import { Link } from 'react-router-dom';
-import useRestaurantData from '../utils/useRestaurantData.js';
+import { useState, useEffect } from 'react';
 
 const Body = () => {
-  /* const [listOfRestaurants, setListOfRestaurants] = useState([]); //
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRes, setFilteredRes] = useState([]);
   const [searchText, setSearchText] = useState('');
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -22,16 +23,7 @@ const Body = () => {
     const resInfo = json?.sections?.SECTION_SEARCH_RESULT;
     setListOfRestaurants(resInfo);
     setFilteredRes(resInfo);
-  };*/
-
-  const {
-    listOfRestaurants,
-    setListOfRestaurants,
-    filteredRes,
-    setFilteredRes,
-    searchText,
-    setSearchText,
-  } = useRestaurantData();
+  };
 
   if (listOfRestaurants.length === 0) {
     return <Shimmer />;
@@ -69,7 +61,7 @@ const Body = () => {
               const filteredList = listOfRestaurants.filter(
                 (res) => res.info.rating.aggregate_rating > 4
               );
-              setListOfRestaurants(filteredList);
+              setFilteredRes(filteredList);
             }}
           >
             Top Rated Restaurant
@@ -79,14 +71,19 @@ const Body = () => {
       <div className="flex flex-wrap mx-2 px-12">
         {filteredRes.map((restaurant) => (
           <Link
-            to={'/restaurants/' + restaurant.info.resId}
             key={restaurant.info.resId}
+            to={'/restaurants/' + restaurant.info.resId}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.isPromoted ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
     </div>
   );
 };
+
 export default Body;
