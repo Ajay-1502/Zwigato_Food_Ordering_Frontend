@@ -24,7 +24,7 @@ const Header = () => {
           <li className="px-4">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="px-4 cursor-pointer">Cart</li>
+          <li className="px-4 cursor-pointer">Cart🛒</li>
           <button
             className="login-btn px-4"
             onClick={() => {
