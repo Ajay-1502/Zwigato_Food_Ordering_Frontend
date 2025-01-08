@@ -36,9 +36,8 @@ const Header = () => {
               btnName === 'Login' ? setBtnName('Logout') : setBtnName('Login');
             }}
           >
-            {btnName}
+            {btnName} - {loggedInUser}
           </button>
-          <li className="px-6 py-3  font-semibold">{loggedInUser}</li>
         </ul>
       </div>
     </div>
