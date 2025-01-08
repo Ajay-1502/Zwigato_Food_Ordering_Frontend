@@ -11,12 +11,11 @@ const cartSlice = createSlice({
     },
 
     removeItem: (state) => {
-      //Action parameter is not required as it's not used here
       state.items.pop();
     },
 
     clearCart: (state) => {
-      //Action parameter is not required as it's not used here
+      //action parameter is not required as it's not used here
       state.items.length = 0;
     },
   },
