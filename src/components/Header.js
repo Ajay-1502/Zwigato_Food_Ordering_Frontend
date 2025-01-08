@@ -14,26 +14,28 @@ const Header = () => {
         <img className="w-36" src={LOGO_URL} alt="Zwigato Logo" />
       </div>
       <div className="flex items-center">
-        <ul className="flex p-4 m-4">
-          <li className="px-4">
+        <ul className="flex p-4 m-4 ">
+          <li className="px-6 py-3 font-semibold text-black hover:bg-white hover:border hover:border-gray-300 hover:rounded-lg hover:shadow-lg transition duration-300">
             <Link to="/">Home</Link>
           </li>
-          <li className="px-4">
+          <li className="px-6 py-3 font-semibold text-black hover:bg-white hover:border hover:border-gray-300 hover:rounded-lg hover:shadow-lg transition duration-300">
             <Link to="/about">About Us</Link>
           </li>
-          <li className="px-4">
+          <li className="px-6 py-3 font-semibold text-black hover:bg-white hover:border hover:border-gray-300 hover:rounded-lg hover:shadow-lg transition duration-300">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="px-4 cursor-pointer">Cart🛒</li>
+          <li className="px-6 py-3  text-black hover:bg-white hover:border hover:border-gray-300 hover:rounded-lg hover:shadow-lg transition duration-300 cursor-pointer font-semibold">
+            Cart🛒
+          </li>
           <button
-            className="login-btn px-4"
+            className="login-btn px-6 py-3 font-semibold text-black hover:bg-white hover:border hover:border-gray-300 hover:rounded-lg hover:shadow-lg transition duration-300"
             onClick={() => {
               btnName === 'Login' ? setBtnName('Logout') : setBtnName('Login');
             }}
           >
             {btnName}
           </button>
-          <li className="px-2 font-semibold">{loggedInUser}</li>
+          <li className="px-6 py-3  font-semibold">{loggedInUser}</li>
         </ul>
       </div>
     </div>
