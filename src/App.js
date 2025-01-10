@@ -10,6 +10,7 @@ import Shimmer from './components/ShimmerUI.js';
 import UserContext from './utils/UserContext.js';
 import { Provider } from 'react-redux';
 import appStore from './utils/appStore.js';
+import Cart from './components/Cart.js';
 
 //import RestaurantMenu from './components/RestaurantMenu.js';
 
@@ -64,6 +65,10 @@ const appRouter = createBrowserRouter([
             <RestaurantMenu />
           </Suspense>
         ),
+      },
+      {
+        path: '/cart',
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,

@@ -13,8 +13,8 @@ const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
-    <div className="flex justify-between  bg-orange-200">
-      <div className="logo-container  bg-orange-200 p-2">
+    <div className="flex justify-between border-b border-gray-300 shadow-lg">
+      <div className="logo-container px-2">
         <img className="w-36" src={LOGO_URL} alt="Zwigato Logo" />
       </div>
       <div className="flex items-center">
@@ -29,7 +29,7 @@ const Header = () => {
             <Link to="/contact">Contact Us</Link>
           </li>
           <li className="px-6 py-3  text-black hover:bg-white hover:border hover:border-gray-300 hover:rounded-lg hover:shadow-lg transition duration-300 cursor-pointer font-semibold">
-            Cart🛒 - {cartItems.length}
+            <Link to="/cart">Cart🛒 - {cartItems.length}</Link>
           </li>
           <button
             className="login-btn px-6 py-3 font-semibold text-black hover:bg-white hover:border hover:border-gray-300 hover:rounded-lg hover:shadow-lg transition duration-300"
